@@ -3,7 +3,8 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
+  //logging to find out where it is working
+  console.log("burgersController.js is listening")
   // Create all our routes and set up logic within those routes where required.
   app.get("/", function(req, res) {
     db.Burger.findAll({}).then(function(dbBurger) {

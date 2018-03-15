@@ -1,19 +1,30 @@
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
 
-var PORT = process.env.PORT || 3000;
-
+// Sets up the Express App
+// =============================================================
 var app = express();
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.
 //adding __dirname + to public is what allowed me access to the images in assets/img folder
+//having errors sequelizing so changing original code:
 app.use(express.static(__dirname + "/public"));
+//now having new issues with html/javascript not listening so bringing above code back
+// app.use(express.static("public"));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -29,6 +40,9 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require("./controllers/burgersController.js")(app);
+//having error sequelizing so minimizing orginal code of:
+//db.sequelize.sync().then(function() {
+
 
 db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {

@@ -59,3 +59,10 @@ $(function() {
     );
   });
 });
+
+function listening() {
+  console.log("javascript burgers.js is listening");
+};
+
+listening();
+
