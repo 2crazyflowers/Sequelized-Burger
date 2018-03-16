@@ -40,11 +40,12 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require("./controllers/burgersController.js")(app);
+// require("./controllers/html_routes.js")(app);
 //having error sequelizing so minimizing orginal code of:
 //db.sequelize.sync().then(function() {
 
-
-db.sequelize.sync({ force: true }).then(function() {
+//do not use this unless you want it to always want to delete your table every time this file is loaded 
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

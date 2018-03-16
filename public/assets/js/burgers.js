@@ -9,7 +9,7 @@ $(function() {
       devoured: newDevour
     };
 
-    // Send the PUT request.
+    // Send the PUT request which updates the database
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
       data: newDevourState
@@ -25,7 +25,7 @@ $(function() {
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+    //create a new burger with the default of not devoured
     var newBurger = {
       burger_name: $("#bu").val().trim(),
       devoured: 0
@@ -60,6 +60,7 @@ $(function() {
   });
 });
 
+//testing to see if code is being registered
 function listening() {
   console.log("javascript burgers.js is listening");
 };
