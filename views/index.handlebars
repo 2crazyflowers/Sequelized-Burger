@@ -13,11 +13,7 @@
       <h2 class="card-header text-center">Ready to eat da burgers!</h2>
       <div class="card-body">
         <div class="card-text"> 
-          {{#each burgers}}
-            {{#unless devoured}}
-              {{> burgers/burger-block devoured=true}}
-            {{/unless}}
-          {{/each}}
+          {{> burgers/burger-block devoured=true}}
         </div>
       </div>
     </div>
