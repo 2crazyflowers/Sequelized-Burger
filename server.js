@@ -34,12 +34,28 @@ var exphbs = require("express-handlebars");
 //sets main.handlebars as the default layout and our view engine as handlebar
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 
+var handlebars = require("handlebars");
+handlebars.registerHelper("json", context => JSON.stringify(context));
+
 //I am getting an error at the require line below, but I think it has more to do with the handlebars here
 app.set("view engine", "handlebars");
+
+handlebars.registerHelper("debug", function(optionalValue) {
+    console.log("Current Context");
+    console.log("====================");
+    console.log(this);
+    if (optionalValue) {
+        console.log("Value");
+        console.log("====================");
+        console.log(optionalValue);
+    }
+});
 
 // Routes
 // =============================================================
 require("./controllers/burgersController.js")(app);
+
+
 
 //do not use .sync({ force: true }) unless you want it to always want to delete your table every time this file is loaded 
 db.sequelize.sync().then(function() {

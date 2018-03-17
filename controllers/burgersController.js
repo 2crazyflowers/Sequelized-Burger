@@ -18,9 +18,9 @@ module.exports = function(app) {
         burgers: dbBurger
       };
 
-      console.log(hbsObject.burgers);
-
+      console.log(hbsObject);
       res.render("index", hbsObject);
+
     });
   });
 
@@ -29,10 +29,12 @@ module.exports = function(app) {
     db.Burger.create({
       burger_name: req.body.burger_name,
       devoured: req.body.devoured
+
     }).then(function(dbBurger) {
     // We have access to the new Burger as an argument inside of the callback function
       console.log(dbBurger);
       res.json(dbBurger);
+
     });
   });
 
@@ -46,7 +48,7 @@ module.exports = function(app) {
           id: req.body.id
         }
       }).then(function(dbBurger) {
-        console.log(dbBurger);
+        //console.log(dbBurger);
         res.redirect("/index");
       });
   });
