@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-// Set Handlebars.
+// Set Handlebars
 var exphbs = require("express-handlebars");
 //sets main.handlebars as the default layout and our view engine as handlebar
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -40,11 +40,8 @@ app.set("view engine", "handlebars");
 // Routes
 // =============================================================
 require("./controllers/burgersController.js")(app);
-// require("./controllers/html_routes.js")(app);
-//having error sequelizing so minimizing orginal code of:
-//db.sequelize.sync().then(function() {
 
-//do not use this unless you want it to always want to delete your table every time this file is loaded 
+//do not use .sync({ force: true }) unless you want it to always want to delete your table every time this file is loaded 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);

@@ -7,11 +7,8 @@ module.exports = function(app) {
   //logging to find out where it is working
   //console.log("burgersController.js is listening")
   // Create all our routes and set up logic within those routes where required.
-  app.get("/", function(req, res) {
-    res.redirect("/index");
-  });
   
-  // Index Page (render all burgers to DOM)
+  // Index Page (render all burgers to browser)
   app.get("/index", function(req, res) {
 
     db.Burger.findAll({}).then(function(dbBurger) {
@@ -22,7 +19,7 @@ module.exports = function(app) {
       };
 
       console.log(hbsObject.burgers);
-      //res.render is what I want to use not res.json
+
       res.render("index", hbsObject);
     });
   });

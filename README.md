@@ -1,146 +1,15 @@
-Burger 2: The Sequel
+# Eat-Da-Burger Sequelized
 
+This app is all about eating burgers, yes, that's right! You'll create a burger logger with MySQL, Node, Express, Handlebars and Sequelize as the ORM (yum!). This follows MVC design pattern and uses Node and MySQL to query and route data into the app, and Handlebars to generate the HTML.
 
-Overview
-
-This homework assignment is optional. 
-
-In this assignment, you're going to Sequelize the Burger app you made last week. We've split this exercise into three different tiers, all with different tasks and expectations. Finish whichever tier will provide you with the most reasonable challenge.
-
-
-Before you Begin
-
-
-Create a new folder called sequelizedBurger
-
-Copy the contents of your completed assignment from last week.
-
-
-Remove the older git connection with rm -R .git. 
-Then connect this folder with a new github repo.
-
-
-Run sequelize init to create the necessary files.
-Note: If for any reason you don't have a finished assignment for last week, no problem. Message the instructor, who will provide you will a skeleton file to work of for this week.
-
-
-
-Instructions
-
-Put in your best efforts to complete one of the three available challenge tiers. Remember to deploy your assignment to Heroku once complete.
-
-
-Tier 1: Sequelized! (Basic to Moderate)
-
-
-Remove all references to your vanilla MySQL queries and replace them with Sequelize queries.
-
-That means:
-
-
-Replacing your MySQL Burger model with a Sequelized equivalent.
-Don't forget to edit the model and initial migration file to make the burger's devoured field carry a default value of false -- otherwise you might encounter bugs.
-
-
-There's no option to include that default in the command line, so you'll need to open up your editor to make this change. 
-
-
-Don't forget to sync the models!
-Edit your new config.json file to include your database configurations. Place your JawsDB details in the production property of your json file; the details of your local database go in the developer property.
-Remove your old ORM file, as well as any references to it in burgers_controller.js. Replace those references with Sequelize's ORM methods.
-
-
-When you finish, your site should function just like your last one:
- 
-
-
-
-Tier 2: Customer Associations (Challenge)
-
-
-Add in a Customer association to the project. This will involve creating at least one new Customer model and connecting it with your Burger model.
-What kind of association you would like to use is up to you. Does a Customer have one Burger? Many Burgers?
-
-For example, you could make a site that logs the name of which Customer ate which Burger, where each Customer only gets one Burger. If you can't think of another type of association, try this one!
-
-
-
-If you do go select this tier, you must edit the handlebars files and CSS stylesheets to implement some sort of additional feature to the site. We don't want you to just connect two models and submit your project. Make your site do something relevant to this association.
-
-
-
-Bonus! (Challenge)
-
-
-
-Add validations to your models where:
-
-
-A burger's name cannot be null
-A burger's devoured status is false by default
-A Customer's name cannot be null
-
-
-Order the Burgers you send back to the user in alphabetical order using the Sequelize "order" option.
-
-
-
-
-
-Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed.
-
-
-
-
-Hosting on Heroku
-
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while Heroku is free, it will request credit card information if you have more than 5 applications at a time or are adding a database. 
-
-Please see Heroku’s Account Verification Information for more details. 
-
-
-
-
-Create a README.md
-
-Add a README.md to your repository describing the project. Here are some resources for creating your README.md. Here are some resources to help you along the way:
-
-
-About READMEs
-Mastering Markdown
-
-
-
-
-
-Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-
-
-
-One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-Good Luck!
-
-# Node Express Handlebars
-
-This app is all about eating burgers, yes, that's right! You'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
 * Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
 ```
 
-* Whenever a user submits a burger's name, your app will display the burger on the
- left side of the page -- waiting to be devoured.
+* Whenever a user submits a burger's name, the app will display the burger on the left side of the page -- waiting to be devoured.
 
-* Each burger in the waiting area also has a `Devour it!` button. When the user
- clicks it, the burger will move to the right side of the page.
+* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
 
-* Your app will store every burger in a database, whether devoured or not.
+* The app will store every burger in a database, whether devoured or not.
 
 * [Check out this video of the app for a run-through of how it works](burger_demo.mp4).
 
@@ -161,6 +30,8 @@ This app requires a number of programs:
 	* [Body-Parser](https://www.npmjs.com/package/body-parser)
 	* [MySQL](https://www.npmjs.com/package/mysql)
 	* [dotenv](https://www.npmjs.com/package/dotenv)
+	* [Sequelize](https://www.npmjs.com/package/sequelize)
+	* [Sequelize-CLI](https://www.npmjs.com/package/sequelize-cli)
 
 
 #### Directory structure
@@ -171,8 +42,7 @@ All the recommended files and directories from the steps above should look like 
 Eat-Da-Burger
 │
 ├── config
-│   ├── connection.js
-│   └── orm.js
+│   └── connection.js
 │ 
 ├── controllers
 │   └── burgers_controller.js
@@ -211,7 +81,7 @@ Eat-Da-Burger
     │
     └── partials
     	└── burgers
-		└── burgers.js
+		     └── burgers.js
 ```
 
 ## Instructions on setting up and running this app on your computer
@@ -333,139 +203,9 @@ This application is delployed at [https://still-sea-48695.herokuapp.com/](https:
 
 ## Acknowledgments
 
-* A big thanks to Sunday coding crew, especially Phil Stubbs who is always, without even trying to, pushing me to do more and better.
+* A big thanks to Jeff Studenski for his help with getting my html file to show in the browser.
 * Background Photo by Andrew Walton @w_andrew_j (instagram) on Unsplash
 
 ## Issues
 
-* One issue that I have noticed is that there is a lag in time between making changes on the browser and those changes being updated to the browser and MySQL. 
-
-Burger 2: The Sequel
-
-
-Overview
-
-This homework assignment is optional. 
-
-In this assignment, you're going to Sequelize the Burger app you made last week. We've split this exercise into three different tiers, all with different tasks and expectations. Finish whichever tier will provide you with the most reasonable challenge.
-
-
-Before you Begin
-
-
-Create a new folder called sequelizedBurger
-
-Copy the contents of your completed assignment from last week.
-
-
-Remove the older git connection with rm -R .git. 
-Then connect this folder with a new github repo.
-
-
-Run sequelize init to create the necessary files.
-Note: If for any reason you don't have a finished assignment for last week, no problem. Message the instructor, who will provide you will a skeleton file to work of for this week.
-
-
-
-Instructions
-
-Put in your best efforts to complete one of the three available challenge tiers. Remember to deploy your assignment to Heroku once complete.
-
-
-Tier 1: Sequelized! (Basic to Moderate)
-
-
-Remove all references to your vanilla MySQL queries and replace them with Sequelize queries.
-
-That means:
-
-
-Replacing your MySQL Burger model with a Sequelized equivalent.
-Don't forget to edit the model and initial migration file to make the burger's devoured field carry a default value of false -- otherwise you might encounter bugs.
-
-
-There's no option to include that default in the command line, so you'll need to open up your editor to make this change. 
-
-
-Don't forget to sync the models!
-Edit your new config.json file to include your database configurations. Place your JawsDB details in the production property of your json file; the details of your local database go in the developer property.
-Remove your old ORM file, as well as any references to it in burgers_controller.js. Replace those references with Sequelize's ORM methods.
-
-
-When you finish, your site should function just like your last one:
- 
-
-
-
-Tier 2: Customer Associations (Challenge)
-
-
-Add in a Customer association to the project. This will involve creating at least one new Customer model and connecting it with your Burger model.
-What kind of association you would like to use is up to you. Does a Customer have one Burger? Many Burgers?
-
-For example, you could make a site that logs the name of which Customer ate which Burger, where each Customer only gets one Burger. If you can't think of another type of association, try this one!
-
-
-
-If you do go select this tier, you must edit the handlebars files and CSS stylesheets to implement some sort of additional feature to the site. We don't want you to just connect two models and submit your project. Make your site do something relevant to this association.
-
-
-
-Bonus! (Challenge)
-
-
-
-Add validations to your models where:
-
-
-A burger's name cannot be null
-A burger's devoured status is false by default
-A Customer's name cannot be null
-
-
-Order the Burgers you send back to the user in alphabetical order using the Sequelize "order" option.
-
-
-
-
-
-Minimum Requirements
-
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed.
-
-
-
-
-Hosting on Heroku
-
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while Heroku is free, it will request credit card information if you have more than 5 applications at a time or are adding a database. 
-
-Please see Heroku’s Account Verification Information for more details. 
-
-
-
-
-Create a README.md
-
-Add a README.md to your repository describing the project. Here are some resources for creating your README.md. Here are some resources to help you along the way:
-
-
-About READMEs
-Mastering Markdown
-
-
-
-
-
-Add To Your Portfolio
-
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
-
-
-
-
-One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-Good Luck!
+* So far I have not been able to get the burgers to show on the html.
