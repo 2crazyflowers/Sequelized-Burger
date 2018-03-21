@@ -1,0 +1,16 @@
+{{#each burgers}}
+	{{#if this.devoured}}
+		<div class="burger-div">
+			<div class="row">
+				<div class="col-md-7 col-7">
+					{{this.burger_name}}
+				</div>
+				<div class="col-md-2 col-2">
+					<button class="delete-burger btn btn-outline-secondary rounded-0" data-id="{{this.id}}">
+						Toss the Wrapper!
+					</button>
+				</div>
+			</div>
+		</div>
+	{{/if}}
+{{/each}}

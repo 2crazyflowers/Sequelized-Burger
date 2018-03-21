@@ -2,7 +2,6 @@
 	font-size: 2rem;
 	background-color: #ef6c00;
 	font-family: 'Skranji', cursive;
-	
 }
 
 h1 {
@@ -32,7 +31,7 @@ h2 {
 	font-family: 'Oswald', sans-serif;
 }
 
-.col-4 img {
+.col-4,img {
 	padding-left: 50px;
 }
 
@@ -59,7 +58,7 @@ footer {
 }
 
 .card {
-	width: 365px;
+	width: 395px;
 }
 
 .burger-div {

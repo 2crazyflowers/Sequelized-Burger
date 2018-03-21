@@ -13,24 +13,20 @@
       <h2 class="card-header text-center">Ready to eat da burgers!</h2>
       <div class="card-body">
         <div class="card-text"> 
-          {{> burgers/burger-block devoured=true}}
+          {{> burgers/burger-block}}
         </div>
       </div>
     </div>
     <div class="card border-0 rounded-0 mb-3 mx-4 id="options"">
-      <h2 class="card-header text-center">Devoured Burgers!</h2>
+      <h2 class="card-header text-center py-4">Devoured Burgers!</h2>
       <div class="card-body">
         <div class="card-text">        
-          {{#each burgers}}
-            {{#if devoured}}
-              {{> burgers/burger-block devoured=false}}
-            {{/if}}
-          {{/each}}
+          {{> burgers/burger-block-eaten}}
         </div>
       </div>
     </div>
     <div class="card border-0 rounded-0 mb-3 mx-4 id="options"">
-      <h2 class="card-header text-center">Place An Order</h2>
+      <h2 class="card-header text-center py-4">Place An Order</h2>
       <div class="card-body">
         <div class="card-text">
           <form class="create-form">
